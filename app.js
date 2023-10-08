@@ -238,10 +238,291 @@ function multiplikationstabel(tal) {
 
 multiplikationstabel(6);
 
+console.log("Arrays")
+
+console.log("Opgave 1. Skriv “Viborg” i konsollen ved at trække den ud fra følgende array")
+
+let byer = ["Randers", "Viborg", "Aarhus", "København"];
+console.log(byer[1]);
 
 
+console.log("Opgave 2. Tilføj “Skive” til denne array")
+
+let byer2 = ["Randers", "Viborg", "Aarhus", "København"];
+byer2.push("Skive");
+console.log(byer2);
+
+console.log("Opgave 3. Erstat den værdi, uden at ændre direkte i arrayet, som ikke passer ind, så arrayet stemmer:")
+
+let talrække = [0, 1, 0, 3, 4, 5, 6];
+talrække[2] = 2;
+console.log(talrække); 
+
+console.log("Opgave 4. Skriv, i konsollen, den største værdi fra følgende array. Selvfølgelig ikke manuelt.")
+
+talrække = [1, 2, 3, 4, 11, 55, 99, 100];
+console.log("Den største værdi i arrayet er:", Math.max(...talrække));
+
+console.log("Opgave 5. Sorter den her array")
+
+talrække = [0, 12, 0, 22, 300, 4, 5];
+talrække.sort((a, b) => a - b);
+console.log(talrække); 
+
+console.log("Opgave 6. Sorter den her array i omvendt rækkefølge:")
+
+talrække = [0, 12, 0, 22, 300, 4, 5]
+
+talrække.sort((a, b) => b - a);
+console.log(talrække); 
+
+console.log("Funktioner - Overgang til HTML")
+
+console.log("Opgave 1. Skriv noget kode eller kode sammen med en knap, så i eksekvere følgende funktion:")
+
+console.log(" se knap.html")
+
+console.log("Opgave 2. I skal lave en funktion som tager 2 tal og returnerer summen af dem.")  
+
+function sum(a, b) {
+    return a + b;
+}
 
 
+console.log(sum(2, 5));
+console.log(sum(3, 18)); 
+
+console.log("Opgave 3. 1. Lav en **funktion** som returnerer ***true*** hvis man skriver “Ja” som input og ***false*** ved alt andet")  
+
+function erDetJa(input) {
+    return input === "Ja";
+}
+
+// Test af funktionen
+console.log(erDetJa("Ja")); 
+console.log(erDetJa("Nej")); 
+
+console.log("Opgave 4. Lav en funktion som fungere som en password-tjekker")
+
+
+const kodeord = "SikkerKode123";
+
+function tjekKodeord(input) {
+    return input === kodeord;
+}
+
+// Test af funktionen
+console.log(tjekKodeord("SikkerKode123")); 
+console.log(tjekKodeord("sikkerkode123"));
+console.log(tjekKodeord("ForkertKode"));
+
+console.log("Opgave 5. Lav en funktion som i opgaven før, men for brugernavn")
+
+const korrektBrugernavn = "strune";
+
+function tjekBrugernavn(input) {
+    return input.toLowerCase() === korrektBrugernavn.toLowerCase();
+}
+
+// Test af funktionen
+console.log(tjekBrugernavn("strune"));
+console.log(tjekBrugernavn("STRUNE"));  
+console.log(tjekBrugernavn("sTrUnE"));  
+console.log(tjekBrugernavn("strunE"));  
+console.log(tjekBrugernavn("Strunee"));  
+
+console.log("Loops - Arrays og andre datatyper")
+
+console.log("Opgave 1. Lav et program som summere følgende array, uden brug af Aggregat Funktioner:")
+
+talrække = [0, 12, 0, 22, 300, 4, 5];
+
+sum = 0;
+for (let i = 0; i < talrække.length; i++) {
+    sum += talrække[i];
+}
+
+console.log("Summen af talrækken er:", sum);
+
+console.log("Opgave 2. Lav et program som skriver alle værdierne i dette array, ved brug af foreach:")
+
+talrække = [0, 12, 0, 22, 300, 4, 5];
+
+talrække.forEach(function(tal) {
+    console.log(tal);
+});
+
+console.log("Opgave 3. Lav et program som returnere indexet af det højeste tal, altså giver dens placering i begge disse arrays")  
+
+function findIndexOfMax(array) {
+    let maxIndex = 0;
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > array[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    return maxIndex;
+}
+
+let talrække1 = [0, 12, 0, 22, 300, 4, 5, 12, 12, 212, 12];
+let talrække2 = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 122];
+
+console.log("Indexet af det højeste tal i talrække1 er:", findIndexOfMax(talrække1));
+console.log("Indexet af det højeste tal i talrække2 er:", findIndexOfMax(talrække2));
+
+console.log("Opgave 4. Lav et program som tæller hvor mange gange 12, står i den her array:")   
+
+talrække = [0, 12, 0, 22, 300, 4, 5, 12, 12, 212, 12];
+
+let tæller = 0;
+for (let i = 0; i < talrække.length; i++) {
+    if (talrække[i] === 12) {
+        tæller++;
+    }
+}
+
+console.log("Tallet 12 forekommer", tæller, "gange i talrækken.");
+
+console.log("Opgave 5. Lav et program som tæller, hvor mange værdier som er positive i dette array: (0 er ikke positiv i denne opgave)")
+
+ talrække = [0, -12, 0, -22, -300, 4, 5, -12, 12, -212, 12];
+
+tæller = 0;
+for (let i = 0; i < talrække.length; i++) {
+    if (talrække[i] > 0) {
+        tæller++;
+    }
+}
+
+console.log("Antallet af positive værdier i talrækken er:", tæller);
+
+console.log("Opgave 6. Lav et program som finder gennemsnittet af følgende array og alle andre arrays bestående af tal uden brug af Aggregat Funktioner:")
+
+talrække = [0, 12, 0, 22, 300, 4, 5, 1000, -50, 32];
+
+sum = 0;
+for (let i = 0; i < talrække.length; i++) {
+    sum += talrække[i];
+}
+
+gennemsnit = sum / talrække.length;
+
+console.log("Gennemsnittet af talrækken er:", gennemsnit);
+
+console.log("Opgave 7. Lav et program som finder variansen af følgende array og alle andre arrays bestående af tal uden brug af Aggregat Funktioner:")
+
+talrække = [0, 12, 0, 22, 300, 4, 5, 1000, -50, 32];
+
+// Trin 1: Find middelværdien (gennemsnittet)
+sum = 0;
+for (let i = 0; i < talrække.length; i++) {
+    sum += talrække[i];
+}
+gennemsnit = sum / talrække.length;
+
+// Trin 2: Find summen af de kvadrerede afvigelser fra middelværdien
+let sumOfSquaredDeviations = 0;
+for (let i = 0; i < talrække.length; i++) {
+    let deviation = talrække[i] - gennemsnit;
+    sumOfSquaredDeviations += deviation * deviation;
+}
+
+// Trin 3: Find variansen
+let varians = sumOfSquaredDeviations / talrække.length;
+
+console.log("Variansen af talrækken er:", varians);
+
+console.log("Opgave 8. Ved brug af object formatet i JS, lav objekter på følgende måde: ")
+
+const person1 = {
+    firstName: "Anders",
+    lastName: "Andersen",
+    age: 29,
+    eyeColor: "grøn"
+  };
+  
+  const person2 = {
+    firstName: "Mads",
+    lastName: "Madsen",
+    age: 32,
+    eyeColor: "blå"
+  };
+  
+  const person3 = {
+    firstName: "Han",
+    lastName: "Hansen",
+    age: 55,
+    eyeColor: "brun"
+  };
+  
+  function checkAndPrint(person) {
+    const validEyeColors = ["blå", "grøn", "rød"];
+    
+    if (person.age > 30 && validEyeColors.includes(person.eyeColor)) {
+      console.log(person.firstName, person.lastName);
+    }
+  }
+  
+  checkAndPrint(person1);
+  checkAndPrint(person2);
+  checkAndPrint(person3);
+
+  console.log("Opgave 9. Lav et program, som skriver følgende i konsollen. ")
+
+  const linjer = 5;
+
+  // Første loop for den stigende del (dvs. *, **, ***)
+  for (let i = 1; i <= Math.ceil(linjer / 2); i++) {
+      console.log('*'.repeat(i));
+  }
+  
+  // Andet loop for den faldende del (dvs. **, *)
+  for (let i = Math.floor(linjer / 2); i >= 1; i--) {
+      console.log('*'.repeat(i));
+  }
+  
+  console.log("Opgave 10. Ved brug af object formatet i JS, lav et objekt på følgende måde: ")  
+
+  const object = {
+    array1: [2, 3, 19, 2, -1, -9, 10, 33],
+    array2: [3, 57, -8, 2, -21, -10, 11, 32],
+    array3: [100, -100, 200, -200, 10]
+};
+
+function findGennemsnit(arr) {
+    return arr.reduce((sum, val) => sum + val, 0) / arr.length;
+}
+
+let maxGennemsnitArray = '';
+let maxGennemsnitValue = -Infinity;
+
+for (let key in object) {
+    let gennemsnit = findGennemsnit(object[key]);
+    if (gennemsnit > maxGennemsnitValue) {
+        maxGennemsnitArray = key;
+        maxGennemsnitValue = gennemsnit;
+    }
+}
+
+console.log('Arrayet med det højeste gennemsnit er:', maxGennemsnitArray);
+
+function findVarians(arr) {
+    const gennemsnit = findGennemsnit(arr);
+    return arr.reduce((sum, val) => sum + (val - gennemsnit) ** 2, 0) / arr.length;
+}
+
+let minVariansArray = '';
+let minVariansValue = Infinity;
+
+for (let key in object) {
+    let varians = findVarians(object[key]);
+    if (varians < minVariansValue) {
+        minVariansArray = key;
+        minVariansValue = varians;
+    }
+}
+
+console.log('Arrayet med den laveste varians er:', minVariansArray);
 
 
 
