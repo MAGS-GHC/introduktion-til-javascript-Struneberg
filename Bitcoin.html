@@ -1,0 +1,69 @@
+<!-- Deklarerer dokumenttypen som HTML5 -->
+<!DOCTYPE html>
+
+<!-- Starten af HTML-dokumentet -->
+<html>
+
+<!-- Starten af head-sektionen -->
+<head>
+    <!-- Titlen, som vil blive vist i browserens titellinje -->
+    <title>Bitcoin Clicker</title>
+
+    <!-- Starten af style-sektionen -->
+    <style>
+        /* Styling for hele body-elementet */
+        body {
+            text-align: center; /* Centrerer tekst indeni body-elementet */
+            background-color: #f0f0f0; /* Baggrundsfarve for hele siden */
+        }
+
+        /* Styling for alle button-elementer */
+        button {
+            padding: 15px 25px; /* Indstiller padding (plads omkring teksten) for knappen */
+            font-size: 24px; /* Angiver skriftstørrelsen for teksten på knappen */
+            text-align: center; /* Centrerer teksten indeni knappen */
+            cursor: pointer; /* Ændrer musemarkøren til en hånd, når musen holdes over knappen */
+            outline: none; /* Fjerner en fokusramme omkring knappen, når den er aktiv */
+            color: #fff; /* Tekstfarven på knappen */
+            background-color: #4CAF50; /* Baggrundsfarven på knappen */
+            border: none; /* Fjerner kanten omkring knappen */
+            border-radius: 15px; /* Runder hjørnerne på knappen */
+            box-shadow: 0 9px #999; /* Tilføjer en skyggeeffekt under knappen */
+        }
+    </style>
+    <!-- Slutningen af style-sektionen -->
+</head>
+<!-- Slutningen af head-sektionen -->
+
+<!-- Starten af body-sektionen -->
+<body>
+    <!-- Overskriftsniveau 1 (h1) med teksten "Bitcoin Clicker" -->
+    <h1>Bitcoin Clicker</h1>
+
+    <!-- En knap (button) med id 'clicker' og teksten "Mine Bitcoin" -->
+    <button id="clicker">&#x20BF;</button>
+
+    <!-- Et afsnit (paragraph) med id 'counter' og teksten "0" -->
+    <p id="counter">0</p>
+
+    <!-- Starten af script-sektionen, hvor JavaScript-koden er indeholdt -->
+    <script>
+        // JavaScript-koden starter her
+
+        // Opretter en variabel 'count' og initialiserer den til 0
+        let count = 0;
+
+        // Hent knappen med id 'clicker' og tilføj en event listener til klikbegivenheden
+        document.getElementById('clicker').addEventListener('click', function() {
+            // Når knappen klikkes, øg tælleren
+            count++;
+
+            // Opdater tekstindholdet af p-elementet med id 'counter' med den nye værdi af 'count'
+            document.getElementById('counter').innerHTML = count;
+        });
+    </script>
+    <!-- Slutningen af script-sektionen -->
+</body>
+<!-- Slutningen af body-sektionen -->
+</html>
+<!-- Slutningen af HTML-dokumentet -->
