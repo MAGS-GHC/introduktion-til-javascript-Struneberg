@@ -1,69 +1,89 @@
-<!-- Deklarerer dokumenttypen som HTML5 -->
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Deklarerer dokumenttypen som HTML5 --> 
+<!-- Mere information: https://www.w3schools.com/html/html_intro.asp -->
 
-<!-- Starten af HTML-dokumentet -->
-<html>
+<html> <!-- Starten af HTML-dokumentet -->
 
-<!-- Starten af head-sektionen -->
-<head>
-    <!-- Titlen, som vil blive vist i browserens titellinje -->
-    <title>Bitcoin Miner</title>
+<head> <!-- Starten af head-sektionen --> 
+    <!-- Mere information: https://www.w3schools.com/html/html_head.asp -->
+    <title>Bitcoin Miner</title> <!-- Titlen på websiden --> 
+    <!-- Mere information: https://www.w3schools.com/html/html_head.asp -->
 
-    <!-- Starten af style-sektionen -->
-    <style>
-        /* Styling for hele body-elementet */
+    <style> <!-- Indlejrer CSS-styling inde i HTML-dokumentet --> 
+        <!-- Mere information: https://www.w3schools.com/html/html_styles.asp -->
+        
+        /* Generel stil for hele body-elementet */
         body {
-            text-align: center; /* Centrerer tekst indeni body-elementet */
-            background-color: #f0f0f0; /* Baggrundsfarve for hele siden */
+            margin: 0;
+            height: 100vh; /* Gør body tag 100% af skærmens højde */
+            display: flex; /* Anvender flexbox layout */
+            flex-direction: column; /* Organiserer indhold vertikalt */
+            align-items: center; /* Centrerer indhold vandret */
+            background-color: #f0f0f0;
+        }
+        /* Mere information om CSS Selectors: https://www.w3schools.com/css/css_selectors.asp */
+
+        h1 {
+            h1 {
+    margin-top: 20px;   /* Lidt afstand fra toppen */
+    text-align: center; /* Centrerer teksten */
+    
+    /* Design */
+    color: #333;           /* Mørkegrå tekstfarve */
+    font-family: 'Arial', sans-serif; /* Skrifttype */
+    font-weight: bold;     /* Fed tekst */
+    text-shadow: 2px 2px 4px #aaa; /* Tekstskygge for lidt dybde */
+    border-bottom: 3px solid #ff9900; /* Understregning */
+    padding-bottom: 10px;  /* Afstand under tekst til understregning */
+    width: fit-content;    /* Gør at boksen passer til teksten */
+    margin-left: auto;     /* Centrering */
+    margin-right: auto;    /* Centrering */
+}
+
         }
 
-        /* Styling for alle button-elementer */
-        button {
-            padding: 15px 25px; /* Indstiller padding (plads omkring teksten) for knappen */
-            font-size: 24px; /* Angiver skriftstørrelsen for teksten på knappen */
-            text-align: center; /* Centrerer teksten indeni knappen */
-            cursor: pointer; /* Ændrer musemarkøren til en hånd, når musen holdes over knappen */
-            outline: none; /* Fjerner en fokusramme omkring knappen, når den er aktiv */
-            color: #fff; /* Tekstfarven på knappen */
-            background-color: #4CAF50; /* Baggrundsfarven på knappen */
-            border: none; /* Fjerner kanten omkring knappen */
-            border-radius: 15px; /* Runder hjørnerne på knappen */
-            box-shadow: 0 9px #999; /* Tilføjer en skyggeeffekt under knappen */
+        /* Giver billedet en absolut position, så vi kan ændre det med JavaScript */
+        #clicker {
+            position: absolute; /* Absolut positionering */
+            transition: top 0.3s, left 0.3s; /* Glidende bevægelseseffekt */
         }
+        /* Mere information om CSS Positioning: https://www.w3schools.com/css/css_positioning.asp */
     </style>
-    <!-- Slutningen af style-sektionen -->
 </head>
-<!-- Slutningen af head-sektionen -->
 
-<!-- Starten af body-sektionen -->
-<body>
-    <!-- Overskriftsniveau 1 (h1) med teksten "Bitcoin Clicker" -->
-    <h1>Bitcoin Miner</h1>
+<body> <!-- Starten af body-sektionen, hvor alt visuelt indhold skal placeres -->
+    <!-- Mere information: https://www.w3schools.com/html/html_basic.asp -->
 
-    <!-- En knap (button) med id 'clicker' og teksten "Mine Bitcoin" -->
-<img id="clicker" src="Billeder/Bitcoin.jpg" alt="Bitcoin" width="250" height="250">
+    <h1>Bitcoin Miner</h1> <!-- Overskrift på siden --> 
+    <!-- Mere information: https://www.w3schools.com/html/html_headings.asp -->
 
-    <!-- Et afsnit (paragraph) med id 'counter' og teksten "0" -->
-    <p id="counter">0</p>
+    <img id="clicker" src="Billeder/Bitcoin.jpg" alt="Bitcoin" width="250" height="250"> 
+    <!-- Billede med id 'clicker' -->
+    <!-- Mere information: https://www.w3schools.com/html/html_images.asp -->
 
-    <!-- Starten af script-sektionen, hvor JavaScript-koden er indeholdt -->
-    <script>
-        // JavaScript-koden starter her
+    <p id="counter">0</p> <!-- Tekstafsnit med id 'counter' --> 
+    <!-- Mere information: https://www.w3schools.com/html/html_paragraphs.asp -->
 
-        // Opretter en variabel 'count' og initialiserer den til 0
+    <script> <!-- Indlejret JavaScript-kode -->
+        <!-- Mere information: https://www.w3schools.com/js/js_intro.asp -->
         let count = 0;
+        const clicker = document.getElementById('clicker');
 
-        // Hent knappen med id 'clicker' og tilføj en event listener til klikbegivenheden
-        document.getElementById('clicker').addEventListener('click', function() {
-            // Når knappen klikkes, øg tælleren
-            count++;
+        clicker.addEventListener('click', function() {
+            count++; // Øger tælleren ved hvert klik
+            document.getElementById('counter').innerHTML = count; // Opdaterer tællervisningen på websiden
 
-            // Opdater tekstindholdet af p-elementet med id 'counter' med den nye værdi af 'count'
-            document.getElementById('counter').innerHTML = count;
+            // Få billedet til at hoppe til en ny position
+            const maxX = window.innerWidth - 250; // 250 er billedets bredde
+            const maxY = window.innerHeight - 250; // 250 er billedets højde
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            clicker.style.left = randomX + 'px'; // Sætter den tilfældige 'left' position
+            clicker.style.top = randomY + 'px';  // Sætter den tilfældige 'top' position
         });
+        /* Mere information om DOM Events: https://www.w3schools.com/js/js_htmldom_events.asp */
     </script>
-    <!-- Slutningen af script-sektionen -->
 </body>
-<!-- Slutningen af body-sektionen -->
+
 </html>
-<!-- Slutningen af HTML-dokumentet -->
